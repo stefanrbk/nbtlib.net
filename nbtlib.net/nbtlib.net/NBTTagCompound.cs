@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace nbtlib.net
+namespace nbtlib
 {
     public class NBTTagCompound : NBTBase
     {

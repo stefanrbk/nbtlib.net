@@ -5,7 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 
-namespace nbtlib.net
+namespace nbtlib
 {
     public class NBTReader
     {

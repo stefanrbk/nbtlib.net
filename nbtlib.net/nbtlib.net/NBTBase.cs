@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace nbtlib.net
+namespace nbtlib
 {
     public abstract class NBTBase
     {

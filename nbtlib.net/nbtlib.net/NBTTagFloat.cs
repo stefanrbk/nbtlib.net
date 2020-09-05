@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib.net
+namespace nbtlib
 {
     public class NBTTagFloat : NBTBase.NBTPrimitive
     {

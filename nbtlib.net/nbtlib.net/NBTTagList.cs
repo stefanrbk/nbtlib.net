@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace nbtlib.net
+namespace nbtlib
 {
     public class NBTTagList : NBTBase
     {
