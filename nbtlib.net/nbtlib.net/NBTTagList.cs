@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagList : NBTBase
+    public class NBTTagList : NbtValue
     {
-        private readonly List<NBTBase> _payload = new List<NBTBase>();
+        private readonly List<NbtValue> _payload = new List<NbtValue>();
         private readonly TagType _type;
 
-        public void AppendTag(NBTBase nbt) => _payload.Add(nbt);
-        public NBTBase Get(int idx) => _payload[idx];
+        public void AppendTag(NbtValue nbt) => _payload.Add(nbt);
+        public NbtValue Get(int idx) => _payload[idx];
         public NBTTagCompound GetCompoundTagAt(int i)
         {
             if (_type != TagType.Compound)
@@ -53,15 +53,15 @@ namespace nbtlib
             return ((NBTTagString)_payload[i]).GetString();
         }
         public TagType GetTagType() => _type;
-        public NBTBase RemoveTag(int i)
+        public NbtValue RemoveTag(int i)
         {
             var val = _payload[i];
             _payload.RemoveAt(i);
             return val;
         }
-        public void Set(int idx, NBTBase nbt) => _payload[idx] = nbt;
+        public void Set(int idx, NbtValue nbt) => _payload[idx] = nbt;
         public int TagCount() => _payload.Count;
         public NBTTagList(string name, TagType type) : base(TagType.List, name) => _type = type;
-        public NBTTagList(string name, TagType type, List<NBTBase> list) : this(name, type) => _payload = list;
+        public NBTTagList(string name, TagType type, List<NbtValue> list) : this(name, type) => _payload = list;
     }
 }

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagCompound : NBTBase
+    public class NBTTagCompound : NbtValue
     {
-        private Dictionary<string, NBTBase> _payload;
-        public NBTTagCompound(string name) : base(TagType.Compound, name) => _payload = new Dictionary<string, NBTBase>();
-        internal NBTTagCompound(string name, Dictionary<string, NBTBase> value) : this(name) => _payload = value;
+        private Dictionary<string, NbtValue> _payload;
+        public NBTTagCompound(string name) : base(TagType.Compound, name) => _payload = new Dictionary<string, NbtValue>();
+        internal NBTTagCompound(string name, Dictionary<string, NbtValue> value) : this(name) => _payload = value;
         public bool GetBoolean(string key)
         {
             var val = GetByte(key);
@@ -97,7 +97,7 @@ namespace nbtlib
                 throw new InvalidOperationException();
             return ((NBTTagString)val).GetString();
         }
-        public NBTBase GetTag(string key) => _payload[key];
+        public NbtValue GetTag(string key) => _payload[key];
         public TagType GetTagId(string key) => GetTag(key).Id;
         public NBTTagList GetTagList(string key, TagType type)
         {
@@ -133,7 +133,7 @@ namespace nbtlib
         public void SetLongArray(string key, long[] value) => SetTag(key, new NBTTagLongArray(key, value));
         public void SetShort(string key, short value) => SetTag(key, new NBTTagShort(key, value));
         public void SetString(string key, string value) => SetTag(key, new NBTTagString(value));
-        public void SetTag(string key, NBTBase value) => _payload.Add(key, value);
+        public void SetTag(string key, NbtValue value) => _payload.Add(key, value);
         public void SetUniqueId(string key, UUID value)
         {
 

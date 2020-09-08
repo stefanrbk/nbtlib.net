@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagByte : NBTBase.NBTPrimitive
+    public class NBTTagByte : NbtValue.NbtPrimitive
     {
         private sbyte _payload;
         public override sbyte GetByte() => _payload;

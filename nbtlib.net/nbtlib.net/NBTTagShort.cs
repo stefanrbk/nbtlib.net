@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagShort : NBTBase.NBTPrimitive
+    public class NBTTagShort : NbtValue.NbtPrimitive
     {
         private readonly short _payload;
         public override short GetShort() => _payload;

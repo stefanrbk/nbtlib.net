@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagLongArray : NBTBase
+    public class NBTTagLongArray : NbtValue
     {
         private readonly long[] _payload;
 

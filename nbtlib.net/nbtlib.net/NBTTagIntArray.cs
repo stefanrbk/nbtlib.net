@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagIntArray : NBTBase
+    public class NBTTagIntArray : NbtValue
     {
         private readonly int[] _payload;
 

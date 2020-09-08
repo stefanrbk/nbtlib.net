@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagDouble : NBTBase.NBTPrimitive
+    public class NBTTagDouble : NbtValue.NbtPrimitive
     {
         private readonly double _payload;
         public override double GetDouble() => _payload;

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagEnd : NBTBase
+    public class NBTTagEnd : NbtValue
     {
         public NBTTagEnd() : base(TagType.End, "_") { }
     }

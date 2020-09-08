@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagLong : NBTBase.NBTPrimitive
+    public class NBTTagLong : NbtValue.NbtPrimitive
     {
         private readonly long _payload;
         public override long GetLong() => _payload;

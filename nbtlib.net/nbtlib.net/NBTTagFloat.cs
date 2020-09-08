@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagFloat : NBTBase.NBTPrimitive
+    public class NBTTagFloat : NbtValue.NbtPrimitive
     {
         private readonly float _payload;
         public override float GetFloat() => _payload;

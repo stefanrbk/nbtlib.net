@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
-    public class NBTTagByteArray : NBTBase
+    public class NBTTagByteArray : NbtValue
     {
         private sbyte[] _payload;
         public sbyte[] GetByteArray() => _payload;

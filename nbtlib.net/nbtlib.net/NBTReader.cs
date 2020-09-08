@@ -5,7 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 
-namespace nbtlib
+namespace NbtLib
 {
     public class NBTReader
     {
@@ -14,7 +14,7 @@ namespace nbtlib
         {
             _path = path;
         }
-        public NBTBase ReadFile()
+        public NbtValue ReadFile()
         {
             using var stream = new GZipStream(File.OpenRead(_path), CompressionMode.Decompress);
             using var reader = new BinaryReader(stream);
@@ -22,7 +22,7 @@ namespace nbtlib
             return ReadTag(reader);
         }
 
-        private static NBTBase ReadTag(BinaryReader reader)
+        private static NbtValue ReadTag(BinaryReader reader)
         {
             var tagType = (TagType)reader.ReadSByte();
             if (tagType == TagType.End)
@@ -82,11 +82,11 @@ namespace nbtlib
         }
         private static int ReadInt(BinaryReader reader) => BitConverter.ToInt32(Endianness(reader.ReadBytes(4)), 0);
         private static sbyte ReadByte(BinaryReader reader) => reader.ReadSByte();
-        private static List<NBTBase> ReadList(BinaryReader reader, out TagType type)
+        private static List<NbtValue> ReadList(BinaryReader reader, out TagType type)
         {
             type = (TagType)reader.ReadSByte();
             var count = BitConverter.ToInt16(Endianness(reader.ReadBytes(2)), 0);
-            var val = new List<NBTBase>(count);
+            var val = new List<NbtValue>(count);
             for(var i = 0; i <= count; i++)
             {
                 val.Add(type switch
@@ -114,10 +114,10 @@ namespace nbtlib
             var list = ReadList(reader, out var t);
             return new NBTTagList(name, t, list);
         }
-        private static Dictionary<string, NBTBase> ReadCompound(BinaryReader reader)
+        private static Dictionary<string, NbtValue> ReadCompound(BinaryReader reader)
         {
-            var val = new Dictionary<string, NBTBase>();
-            NBTBase tag;
+            var val = new Dictionary<string, NbtValue>();
+            NbtValue tag;
             do
             {
                 tag = ReadTag(reader);
