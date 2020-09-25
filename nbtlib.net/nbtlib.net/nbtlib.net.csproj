@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IKVM" Version="8.1.5717" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <None Remove="Be.IO.1.0.0.nupkg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Be.IO">
+      <HintPath>..\..\..\Be.IO\src\Be.IO\bin\Release\net5.0\Be.IO.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

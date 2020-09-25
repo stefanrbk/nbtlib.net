@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace NbtLib
 {
-    public enum NbtType
+    public class JsonReader
     {
-        String,
-        Number,
-        Object,
-        List
     }
 }
